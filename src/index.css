@@ -1,5 +1,5 @@
 :root {
-  --linear-gradient:  hsl(236, 72%, 79%) to hsl(237, 63%, 64%);
+  --linear-gradient:  hsl(236, 72%, 79%), hsl(237, 63%, 64%);
 
   --very-light-grayish-blue: hsl(240, 78%, 98%);
   --light-grayish-blue: hsl(234, 14%, 74%);
@@ -95,7 +95,58 @@ svg {
 
 /* general styling */
 body {
+  display:  flex;
+  justify-content: center;
+  align-items: center;
   font-family: var(--ff-primary);
+  height: 100vh;
+  background-color: var(--very-light-grayish-blue);
+}
+.bg-top {
+  background-image: url(/public/images/bg-top.svg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  height: 80%;
+  width: 20%;
+  background-repeat: no-repeat;
+}
+.bg-bottom{
+  background-image: url(/public/images/bg-bottom.svg);
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  background-repeat: no-repeat;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+}
+.main-cont {
+  display: grid;
+  align-items: center;
+}
+.title {
+  font-weight: var(--fw-bold);
+  font-size: 25px;
+  color: var(--grayish-blue);
+}
+.nav-toggle {
+  gap: 20px;
+  color: var(--light-grayish-blue);
+}
+.nav-bar {
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  gap: 10px;
+  margin-block-end: 25px;
+}
+.section {
+  padding-block: var(--size-400);
+}
+.section p {
+  padding-block: 8px;
 }
 /* Buttons */
 .toggle-btn {
@@ -114,11 +165,51 @@ body {
   margin-block: 3px;
 }
 
+.button{
+  border: 0;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  padding-block: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* Cards */
+.card span {
+  color: var(--dark-grayish-blue);
+  font-size: 60px;
+}
+.card {
+  border-radius: 8px;
+  text-align: center;
+  padding: 25px;
+}
+.basic,
+.master {
+  background-color: white;
+  color: var(--grayish-blue);
+}
+.basic .button,
+.master .button {
+  background-image: linear-gradient(var(--linear-gradient));
+  color: white;
+}
+
+.professional {
+  background-image: linear-gradient(var(--linear-gradient));
+  color: white;
+  padding-block: 40px;
+}
+.professional span {
+  color: white;
+}
+
+
 /* Utility classes */
 .flex {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.fw-bold {
-  
-}
