@@ -1,27 +1,31 @@
+import { useState } from "react";
 import { Card } from "./Card";
+import { ToggleSwitch } from "./ToggleButton";
 
 export default function PricingComponent() {
+    const [isToggle, setIsToggle] = useState(true);
+
+    function handleToggle() {
+      setIsToggle(!isToggle);   
+    }
   return (
     <>
       <main className="main-cont">
-        <NavBar />
-        <Card />
+        <NavBar onClick={handleToggle}/>
+        <Card isToggle={isToggle}/>
       </main>
     </>
   );
 }
 
-function NavBar() {
-  function handleToggle() {}
+function NavBar({onClick}) {
   return (
     <>
       <nav className="nav-bar">
         <h1 className="title">Our Pricing</h1>
         <div className="flex nav-toggle">
           <p>Annually</p>
-          <button className="toggle-btn" onClick={handleToggle}>
-            <div className="circle"></div>
-          </button>
+          <ToggleSwitch onClick={onClick}/>
           <p>Monthly</p>
         </div>
       </nav>
